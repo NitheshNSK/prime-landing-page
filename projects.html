@@ -245,6 +245,12 @@
           <div class="row gutter-y-30" id="kitchen-projects-container">
             <!-- Kitchen projects will be loaded here dynamically -->
           </div>
+          <div id="loader" style="text-align: center; margin: 40px 0;">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
         </div>
       </section>
 <a href="https://wa.me/19175755255" class="whatsapp-float" target="_blank" rel="noopener">
@@ -590,19 +596,20 @@
         ><span class="scroll-to-top__inner"></span
       ></span>
     </a>
-    <script>
-      const API_URL = "https://prime-backend-i91j.onrender.com/api/projects"; // Adjust if needed
+   <script>
+  const API_URL = "https://prime-backend-i91j.onrender.com/api/projects"; // Adjust if needed
+  const container = document.getElementById("kitchen-projects-container");
+  const loader = document.getElementById("loader");
 
-      fetch(API_URL)
-        .then((res) => res.json())
-        .then((data) => {
-          const container = document.getElementById(
-            "kitchen-projects-container"
-          );
-          container.innerHTML = "";
+  // Show loader
+  loader.style.display = "block";
+  container.innerHTML = "";
 
-          data.forEach((project) => {
-            const html = `
+  fetch(API_URL)
+    .then((res) => res.json())
+    .then((data) => {
+      data.forEach((project) => {
+        const html = `
         <div class="col-lg-4 col-md-6">
           <div class="work-card">
             <div class="work-card__image">
@@ -624,13 +631,20 @@
           </div>
         </div>
         `;
-            container.insertAdjacentHTML("beforeend", html);
-          });
-        })
-        .catch((err) => {
-          console.error("Failed to load kitchen projects:", err);
-        });
-    </script>
+        container.insertAdjacentHTML("beforeend", html);
+      });
+    })
+    .catch((err) => {
+      console.error("Failed to load kitchen projects:", err);
+      container.innerHTML =
+        '<p class="text-danger text-center">Failed to load kitchen projects.</p>';
+    })
+    .finally(() => {
+      // Hide loader
+      loader.style.display = "none";
+    });
+</script>
+
 
     <script src="assets/vendors/jquery/jquery-3.7.0.min.js"></script>
     <script src="assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
