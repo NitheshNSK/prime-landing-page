@@ -15993,3 +15993,39 @@ body.boxed-wrapper .projects-one__shape {
   width: 27px;
   height: 24px;
 }
+
+/* top bar */
+.top-bar {
+      background-color: #C7844F;
+      color: white;
+      width: 100%;
+      text-align: center;
+      padding: 12px 10px;
+      font-family: Arial, sans-serif;
+    }
+
+    .top-bar span {
+      display: inline;
+      font-size: 18px;
+    }
+
+    .separator::after {
+      content: " | ";
+      padding: 0 8px;
+    }
+
+    .separator:last-child::after {
+      content: "";
+    }
+
+    @media (max-width: 768px) {
+      .top-bar span {
+        display: inline-block;
+        font-size: 8px;
+        margin-bottom: 5px;
+      }
+
+      .top-bar {
+        line-height: 1.4;
+      }
+    }
