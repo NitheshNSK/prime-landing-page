@@ -16006,26 +16006,21 @@ body.boxed-wrapper .projects-one__shape {
 
     .top-bar span {
       display: inline;
-      font-size: 18px;
+      font-size: 25px;
+
     }
 
-    .separator::after {
-      content: " | ";
-      padding: 0 8px;
-    }
-
-    .separator:last-child::after {
-      content: "";
-    }
 
     @media (max-width: 768px) {
       .top-bar span {
         display: inline-block;
-        font-size: 16px;
+         font-size: 25px;
         margin-bottom: 5px;
       }
 
       .top-bar {
         line-height: 1.4;
       }
+     
+    
     }
