@@ -256,10 +256,10 @@
         ></div>
         <!-- /.page-header__bg -->
         <div class="container">
-          <h2 class="page-header__title">Inventory grid</h2>
+          <h2 class="page-header__title">Quartz grid</h2>
           <ul class="floens-breadcrumb list-unstyled">
             <li><i class="icon-home"></i> <a href="index.html">Home</a></li>
-            <li><span>Inventory</span></li>
+            <li><span>Quartz</span></li>
           </ul>
           <!-- /.thm-breadcrumb list-unstyled -->
         </div>
@@ -648,13 +648,15 @@
             card.className = "col-xl-4 col-lg-4 col-sm-6 mb-4";
             card.innerHTML = `
           <div class="gallery-one__card">
-            <img src="${marble.signedUrl}" alt="${marble.name}" />
+            <img src="${marble.signedUrl}" alt="${marble.title}" />
             <div class="gallery-one__card__hover">
               <a href="contact.html" class="img-popup">
-                <span class="gallery-one__card__icon"></span>
+                <p class="text-white"><b>${marble.title}</b></p>
+                <p class="text-white">${marble.description}</p>
               </a>
             </div>
-            <h5 class="text-center mt-2 text-white">${marble.name}</h5>
+            <h5 class="text-center mt-2 text-white">${marble.title}</h5>
+            
           </div>
         `;
             container.appendChild(card);
